@@ -11,10 +11,16 @@ public class MainLoginFrame extends JFrame implements ActionListener {
     JPasswordField passwordField;
     private User user1;
     private User user2;
+    private User user3;
+    private User user4;
 
-    public MainLoginFrame(User user1, User user2) {
+
+    public MainLoginFrame(User user1, User user2,User user3, User user4) {
         this.user1 = user1;
         this.user2 = user2;
+        this.user3 = user3;
+        this.user4 = user4;
+
 
         label = new JLabel("Bank LogIn");
         label.setFont(new Font("MV Boli", Font.BOLD, 30));
@@ -33,6 +39,7 @@ public class MainLoginFrame extends JFrame implements ActionListener {
         passwordField.setCaretColor(new Color(55, 18, 18));
 
         button = new JButton("Login");
+        button.setFocusable(false);
         button.addActionListener(this);
 
         this.setTitle("Bank account [Login]");
@@ -41,6 +48,9 @@ public class MainLoginFrame extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.getContentPane().setBackground(new Color(183, 85, 85, 239));
         this.setLayout(new GridBagLayout());
+
+
+        
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
 
@@ -80,7 +90,11 @@ public class MainLoginFrame extends JFrame implements ActionListener {
             openUserInfoWindow(user1);
         } else if (user2.getUsername().equals(username) && user2.authenticate(password)) {
             openUserInfoWindow(user2);
-        } else {
+        } else if (user3.getUsername().equals(username) && user3.authenticate(password)) {
+            openUserInfoWindow(user3);
+        }else if (user4.getUsername().equals(username) && user4.authenticate(password)) {
+            openUserInfoWindow(user4);
+        }else{
             JOptionPane.showMessageDialog(this, "Invalid login credentials", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -89,7 +103,7 @@ public class MainLoginFrame extends JFrame implements ActionListener {
         JFrame userFrame = new JFrame("User Info: " + user.getUsername());
         userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         userFrame.setSize(500, 500);
-        userFrame.getContentPane().add(new UserInfoWindow(user, user1, user2));
+        userFrame.getContentPane().add(new UserInfoWindow(user, user1, user2,user3,user4));
         userFrame.setVisible(true);
         userFrame.setLocationRelativeTo(null); // Center the frame on screen
     }
