@@ -35,17 +35,4 @@ public class User {
         }
         return false;
     }
-    public void openUserFrame() {
-        JFrame userFrame = new JFrame("User Frame - " + username);
-        userFrame.setSize(500, 500);
-        userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        userFrame.setLocationRelativeTo(null); // Center the frame on the screen
-
-        // Add user-specific content to the frame
-        JLabel welcomeLabel = new JLabel("Welcome, " + username + "!");
-        welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        userFrame.add(welcomeLabel, BorderLayout.CENTER);
-
-        userFrame.setVisible(true);
-    }
 }

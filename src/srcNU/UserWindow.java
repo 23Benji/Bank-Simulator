@@ -1,3 +1,5 @@
+/*package srcNU;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class User1 extends JFrame implements ActionListener, KeyListener {
+public class UserWindow extends JFrame implements ActionListener, KeyListener {
 
     JLabel label;
     JButton button;
@@ -14,7 +16,7 @@ public class User1 extends JFrame implements ActionListener, KeyListener {
     JLabel usernameLabel;
     JLabel passwordLabel;
 
-    public User1() {
+    public UserWindow() {
 
         label = new JLabel("Bank LogIn");
         label.setFont(new Font("MV Oval", Font.BOLD, 30));
@@ -110,3 +112,4 @@ public class User1 extends JFrame implements ActionListener, KeyListener {
 
     }
 }
+*/

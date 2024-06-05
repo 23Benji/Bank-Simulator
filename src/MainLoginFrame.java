@@ -89,14 +89,8 @@ public class MainLoginFrame extends JFrame implements ActionListener {
         JFrame userFrame = new JFrame("User Info: " + user.getUsername());
         userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         userFrame.setSize(500, 500);
-        userFrame.getContentPane().add(new User1Info(user, user1, user2));
+        userFrame.getContentPane().add(new UserInfoWindow(user, user1, user2));
         userFrame.setVisible(true);
         userFrame.setLocationRelativeTo(null); // Center the frame on screen
-    }
-
-    public static void main(String[] args) {
-        User user1 = new User("admin1", "Password.1", 1000.00);
-        User user2 = new User("admin2", "Password.2", 1000.00);
-        new MainLoginFrame(user1, user2);
     }
 }

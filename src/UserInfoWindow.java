@@ -1,9 +1,10 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class User1Info extends JPanel implements ActionListener {
+public class UserInfoWindow extends JPanel implements ActionListener {
 
     private JLabel moneyLabel;
     private JButton sendMoneyButton;
@@ -14,7 +15,7 @@ public class User1Info extends JPanel implements ActionListener {
     private User user1;
     private User user2;
 
-    public User1Info(User currentUser, User user1, User user2) {
+    public UserInfoWindow(User currentUser, User user1, User user2) {
         this.currentUser = currentUser;
         this.user1 = user1;
         this.user2 = user2;
@@ -127,8 +128,8 @@ public class User1Info extends JPanel implements ActionListener {
                         if (window instanceof JFrame) {
                             JFrame frame = (JFrame) window;
                             Container contentPane = frame.getContentPane();
-                            if (contentPane.getComponentCount() > 0 && contentPane.getComponent(0) instanceof User1Info) {
-                                User1Info userInfoPanel = (User1Info) contentPane.getComponent(0);
+                            if (contentPane.getComponentCount() > 0 && contentPane.getComponent(0) instanceof UserInfoWindow) {
+                                UserInfoWindow userInfoPanel = (UserInfoWindow) contentPane.getComponent(0);
                                 userInfoPanel.updateBalanceLabels();
                             }
                         }
