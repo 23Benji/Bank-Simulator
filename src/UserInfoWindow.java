@@ -2,11 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class UserInfoWindow extends JPanel implements ActionListener {
 
     private JLabel moneyLabel;
     private JLabel userLabel;
+    JLabel toLabel;
+    JLabel amountLabel;
     private JButton sendMoneyButton;
     private JComboBox<String> recipientComboBox;
     private JTextField amountField;
@@ -23,6 +27,16 @@ public class UserInfoWindow extends JPanel implements ActionListener {
         this.user2 = user2;
         this.user3 = user3;
         this.user4 = user4;
+
+//        if (this.currentUser.getUsername()==user1.getUsername()){
+//            this.setLocation(10,10);
+//        } else if (currentUser==user2) {
+//            this.setLocation(700,10);
+//        } else if (currentUser==user3) {
+//            this.setLocation(700,700);
+//        }else {
+//            this.setLocation(10,700);
+//        }
 
         userLabel = new JLabel(currentUser.getUsername());
         userLabel.setFont(new Font("MV Boli", Font.BOLD, 30));
@@ -53,6 +67,8 @@ public class UserInfoWindow extends JPanel implements ActionListener {
         sendMoneyButton.setBackground(new Color(255, 165, 0));
         sendMoneyButton.setForeground(Color.WHITE);
         sendMoneyButton.setFont(new Font("Arial", Font.BOLD, 16));
+        sendMoneyButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        sendMoneyButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 2;
@@ -61,18 +77,30 @@ public class UserInfoWindow extends JPanel implements ActionListener {
 
         String[] recipients = {user1.getUsername(), user2.getUsername(), user3.getUsername(), user4.getUsername()};
         recipientComboBox = new JComboBox<>(recipients);
+        recipientComboBox.setBackground(new Color(52, 110, 52));
+        recipientComboBox.setForeground(Color.BLACK);
+        recipientComboBox.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         amountField = new JTextField(10);
+        amountField.setForeground(Color.WHITE);
+        amountField.setBackground(new Color(52, 110, 52));
+        amountField.setCaretColor(new Color(144, 196, 144));
+
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(this);
         confirmButton.setBackground(new Color(0, 128, 0));
         confirmButton.setForeground(Color.WHITE);
         confirmButton.setFont(new Font("Arial", Font.BOLD, 16));
 
+        toLabel = new JLabel("To: ");
+        amountLabel = new JLabel("Amount:  ");
+
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.NONE;
-        this.add(new JLabel("To: "), gbc);
+        this.add(toLabel, gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 3;
@@ -80,7 +108,7 @@ public class UserInfoWindow extends JPanel implements ActionListener {
 
         gbc.gridx = 0;
         gbc.gridy = 4;
-        this.add(new JLabel("Amount: "), gbc);
+        this.add(amountLabel, gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 4;
@@ -91,7 +119,12 @@ public class UserInfoWindow extends JPanel implements ActionListener {
         gbc.gridwidth = 2;
         this.add(confirmButton, gbc);
 
+
+
+
         // Initially hide recipient and amount fields
+        toLabel.setVisible(false);
+        amountLabel.setVisible(false);
         recipientComboBox.setVisible(false);
         amountField.setVisible(false);
         confirmButton.setVisible(false);
@@ -100,8 +133,6 @@ public class UserInfoWindow extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sendMoneyButton) {
-            // Remove current user's name from recipient list
-            String[] recipients = {user1.getUsername(), user2.getUsername(), user3.getUsername(), user4.getUsername()};
             if (currentUser.getUsername().equals(user1.getUsername())) {
                 recipientComboBox.setModel(new DefaultComboBoxModel<>(new String[]{user2.getUsername(), user3.getUsername(), user4.getUsername()}));
             } else if (currentUser.getUsername().equals(user2.getUsername())) {
@@ -112,6 +143,8 @@ public class UserInfoWindow extends JPanel implements ActionListener {
                 recipientComboBox.setModel(new DefaultComboBoxModel<>(new String[]{user1.getUsername(), user2.getUsername(), user3.getUsername()}));
             }
 
+            toLabel.setVisible(true);
+            amountLabel.setVisible(true);
             recipientComboBox.setVisible(true);
             amountField.setVisible(true);
             confirmButton.setVisible(true);
