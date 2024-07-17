@@ -33,6 +33,12 @@ cd Bank-Simulator</code></pre>
 
 <h2>Usage</h2>
 <ol>
+    <li><strong>Create new users and password</strong>
+        <p>Change the existing usernames and passwords with whatever you like. Change it from  <strong>"Main.java" </strong></p>
+        <div class="image-container">
+            <img src=res/img/Main.png alt="Main Javafile" width="600">
+        </div>
+    </li>
     <li><strong>Login as an existing user</strong>
         <p>Enter your username and password in the login window.</p>
         <div class="image-container">
