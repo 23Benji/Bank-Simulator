@@ -49,7 +49,7 @@ cd Bank-Simulator</code></pre>
         <p>You can log in and check the balance live by simply using the login window.</p>
         <p><strong>Attention!</strong> By closing the login window, all other windows will close as well!</p>
         <div class="image-container">
-            <img src="screenshots/balance.png" alt="Balance Window" width="300">
+            <img src=res/img/Multi_User.png alt="Balance Window" width="500">
         </div>
     </li>
 </ol>
