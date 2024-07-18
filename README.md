@@ -59,4 +59,7 @@ cd Bank-Simulator</code></pre>
         </div>
     </li>
 </ol>
+<h2>License</h2>
+<p> This project is open source and licensed under the [<a href="LICENSE" title License>MIT LICENSE.</a>]. See the LICENSE file for details.</p><br>
+
 </body>
